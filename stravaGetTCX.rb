@@ -4,10 +4,20 @@ require 'rubygems'
 require 'erubis'
 require 'strava-api'
 require 'awesome_print'
-require 'ruby-debug'
+# require 'ruby-debug'
 
 rides = ARGV
 strava = StravaApi::Base.new
+
+# issue #3 - strava-api
+module Crack
+    class JSON
+        def self.parse(json)
+            require 'json'
+            return JSON(json)
+        end
+    end
+end
 
 def load_template
     tcx = Erubis::Eruby.new( File.read( File::dirname(__FILE__) + "/base.tcx.erb" ) )

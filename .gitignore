@@ -1,5 +1,7 @@
 *.gem
+*.tcx
 *.rbc
+*.lock
 .bundle
 .config
 coverage
